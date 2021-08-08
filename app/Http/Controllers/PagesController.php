@@ -18,7 +18,7 @@ class PagesController extends Controller
 
     public function companyPage($id)
     {
-        $fields = array('title', 'inn', 'info_description', 'general_manager', 'address', 'telephone');
+        $fields = array('1', '2', '3', '4', '5', '6');
 
         $company = Company::find($id);
         return view('company', [

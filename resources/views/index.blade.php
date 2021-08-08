@@ -17,7 +17,7 @@
         <div class="row">
             <div class="form-company-size flex justify-content-center flex-column">
                 <button id="buttonhidden" class="btn-enabled-company btn btn-primary mb-4" type="submit" name="button">Добавить компанию</button>
-                <form class="form-company" action="/company" method="post">
+                <form class="form-company" action="{{ route('store') }}" method="post">
                     @csrf
                     <div class="mb-3">
                         <label for="InputTitle" class="form-label">Компания</label>

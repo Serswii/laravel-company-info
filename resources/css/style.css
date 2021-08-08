@@ -1,0 +1,63 @@
+.text-logo {
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+}
+p {
+    margin: 0;
+}
+.header {
+    width: 100%;
+    /*background-color: #a6a6a6 !important;*/
+}
+textarea {
+    border: 1px solid #ced4da !important;
+}
+.card-company {
+    width: 24%;
+    height: 200px;
+    margin: 5px;
+}
+.company-info {
+    width: 100%;
+    height: 100%;
+    text-decoration:none;
+    padding: 10px;
+}
+.form-company {
+    display: none;
+    width: 430px;
+    border: 1px solid #ced4da;
+    border-radius: 7px;
+    padding: 20px;
+    background-color: #fff;
+}
+.description-company-card-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+}
+.card-company:hover {
+    background: rgba(0,0,0,0.1);
+    box-shadow: 0 5px 0px #3C93D5;
+}
+.form-company.on {
+    display:block;
+}
+.company-comment-form {
+    display: block;
+}
+p, a {
+    color: #000000;
+}
+body {
+    background-color: #f4f4f4;
+    height: 100%;
+    width: 100%;
+    /*background-image: url("/img/max-delsid-8I6OcgjAOGg-unsplash.jpg");*/
+    /*background-position: center;*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: cover;*/
+}

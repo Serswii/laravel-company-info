@@ -110,6 +110,7 @@
                         id_company: id_company
                     },
                     success(data) {
+                        $(`#CommentManager`).addClass('d-none').text("Поле не должно быть пустым");
                             $('.comments_manager').append(`
         <ul class="media-list">
                         <li class="media">
@@ -140,8 +141,8 @@
             }
             function storeCommentsTitle() {
                 const user = document.querySelector("input[name='user']").value;
-                const id_field = document.getElementById("fieldManager").value;
-                const comment = document.getElementById("InputCommentManager").value;
+                const id_field = document.getElementById("fieldTitle").value;
+                const comment = document.getElementById("InputCommentTitle").value;
                 const id_company = document.querySelector("input[name='id_company']").value;
                 $.ajax({
                     url: "/api/comment",
@@ -154,6 +155,7 @@
                         id_company: id_company
                     },
                     success(data) {
+                        $(`#CommentTitle`).addClass('d-none').text("Поле не должно быть пустым");
                         $('.comments_title').append(`
         <ul class="media-list">
                         <li class="media">
@@ -198,6 +200,7 @@
                         id_company: id_company
                     },
                     success(data) {
+                        $(`#CommentDescription`).addClass('d-none').text("Поле не должно быть пустым");
                         $('.comments_description').append(`
         <ul class="media-list">
                         <li class="media">
@@ -242,6 +245,7 @@
                         id_company: id_company
                     },
                     success(data) {
+                        $(`#CommentInn`).addClass('d-none').text("Поле не должно быть пустым");
                         $('.comments_inn').append(`
         <ul class="media-list">
                         <li class="media">
@@ -286,6 +290,7 @@
                         id_company: id_company
                     },
                     success(data) {
+                        $(`#CommentAddress`).addClass('d-none').text("Поле не должно быть пустым");
                         $('.comments_address').append(`
         <ul class="media-list">
                         <li class="media">
@@ -330,6 +335,7 @@
                         id_company: id_company
                     },
                     success(data) {
+                        $(`#CommentTelephone`).addClass('d-none').text("Поле не должно быть пустым");
                         $('.comments_telephone').append(`
         <ul class="media-list">
                         <li class="media">
@@ -393,6 +399,7 @@
                         const data = err.responseJSON;
                         for (let key in err.responseJSON.errors) {
                             let error_text = err.responseJSON.errors[key][0];
+                            console.log(err.responseJSON.errors[key]);
                             $(`#${key}-error`).removeClass('d-none').text(error_text);
                         }
                     }

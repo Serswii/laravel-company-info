@@ -22,7 +22,9 @@ class CompanyController extends Controller
         ];
         $validator = Validator::make($data, $rules, $messages = [
             'required' => 'Обязательное заполнение поля',
-            "integer" => "Введите цифры в поле"
+            "integer" => "Введите цифры в поле",
+            'title.unique' => "Такая компания уже существует",
+            'inn.unique' => "Такой ИНН уже существует"
         ]);
 
         if ($validator->fails()) {

@@ -125,6 +125,13 @@ textarea {
     margin-right: 20px;
     width: 50px;
 }
+.mobile-company {
+    display: flex;
+    align-items: center;
+}
+.description-company-width {
+    width: 80%;
+}
 @media only screen and (max-device-width: 1024px) {
     .card-orientation {
         flex-direction: column ;
@@ -134,12 +141,16 @@ textarea {
         width: 80%;
     }
     .form-company, .btn-enabled-company {
-        width: 80% !important;
+        width: 100%;
+    }
+    .form-company-size {
+        align-items: center;
+    }
+    .mobile-company {
+        display: block;
     }
 }
-.description-company-width {
-    width: 85%;
-}
+
 p, a {
     color: #000000;
     text-decoration: none !important;
@@ -152,8 +163,12 @@ body {
     background-color: #f4f4f4 !important;
     height: 100%;
     width: 100%;
+    --bs-gutter-x: 0px !important;
     /*background-color: floralwhite !important;*/
     /*background-image: url("/images/bgc.png");*/
     /*background-repeat: repeat;*/
     /*background-size: cover;*/
+}
+.row {
+    padding-left: 15px;
 }

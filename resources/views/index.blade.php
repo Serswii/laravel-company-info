@@ -17,51 +17,39 @@
         <div class="row">
             <div class="form-company-size flex justify-content-center flex-column">
                 <button id="buttonhidden" class="btn-enabled-company btn btn-primary mb-4" type="submit" name="button">Добавить компанию</button>
-                <form class="form-company" action="{{ route('store') }}" method="post">
+                <form class="form-company mb-4" action="">
                     @csrf
                     <div class="mb-3">
                         <label for="InputTitle" class="form-label">Компания</label>
                         <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" id="InputTitle" value="{{ old('title') }}">
-                        @error('title')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
+                        <div class="alert alert-danger d-none" id="title-error" role="alert"></div>
                     </div>
                     <div class="mb-3">
                         <label for="InputInn" class="form-label">ИНН</label>
                         <input type="text" name="inn" class="form-control @error('inn') is-invalid @enderror" id="InputInn" value="{{ old('inn') }}">
-                        @error('inn')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
+                        <div class="alert alert-danger d-none" id="inn-error" role="alert"></div>
                     </div>
                     <div class="mb-3 flex flex-column">
                         <label for="InputInfoDescription" class="form-label">Описание</label>
                         <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="InputInfoDescription" cols="50" rows="5">{{ old('description') }}</textarea>
-                        @error('description')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
+                        <div class="alert alert-danger d-none" id="info_description-error" role="alert"></div>
                     </div>
                     <div class="mb-3">
                         <label for="InputGeneralManager" class="form-label">Генеральный директор</label>
                         <input type="text" name="manager" class="form-control @error('manager') is-invalid @enderror" id="InputGeneralManager" value="{{ old('manager') }}">
-                        @error('manager')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
+                        <div class="alert alert-danger d-none" id="general_manager-error" role="alert"></div>
                     </div>
                     <div class="mb-3">
                         <label for="InputAddress" class="form-label">Адрес</label>
                         <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" id="InputAddress" value="{{ old('address') }}">
-                        @error('address')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
+                        <div class="alert alert-danger d-none" id="address-error" role="alert"></div>
                     </div>
                     <div class="mb-3">
                         <label for="InputTelephone" class="form-label">Телефон</label>
                         <input type="text" name="telephone" class="form-control @error('telephone') is-invalid @enderror" id="InputTelephone" value="{{ old('telephone') }}">
-                        @error('telephone')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
+                        <div class="alert alert-danger d-none" id="telephone-error" role="alert"></div>
                     </div>
-                    <button type="submit" id="save" name="save" class="btn btn-primary">Добавить</button>
+                    <button type="button" id="save" name="save" class="btn btn-primary" onclick="storeCompany()">Добавить</button>
                 </form>
             </div>
         </div>

@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 //    return view('index');
 //});
 Route::get('/', [PagesController::class, "viewCompany"])->name('index');
-Route::post('/company', [CompanyController::class, "store"])->name('store');
+//Route::post('/company', [CompanyController::class, "store"])->name('store');
 Route::get('/company/{id}', [PagesController::class, 'companyPage'])->name('companyInfo');
 
 Route::get('/dashboard', function () {

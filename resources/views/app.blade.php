@@ -67,6 +67,33 @@
                 });
             });
 
+            $.ajax({
+                url: "/api/comment/{{ $company->id }}",
+                type: "GET",
+                dataType: "json",
+                success(data) {
+                    for (let index in data) {
+                        $('.comments_manager').append(`
+                            <ul class="media-list">
+                        <li class="media">
+                        <div class="media-left">
+                        <a href="#">
+                        <img class="media-object img-rounded" src="{{asset('/images/default-photo.png')}}" alt="default-img">
+                        </a>
+                        </div>
+                        <div class="media-body">
+                        <div class="media-heading">
+                        <div class="author">${data[index].user}</div>
+                        <div class="metadata">
+                        <span class="date">16 ноября 2015, 13:43</span>
+                        </div>
+                        </div>
+                        <div class="media-text text-justify">${data[index].comment}</div>
+                        `)
+                    }
+                }
+            })
+
             function storeCommentsManager() {
                 const user = document.querySelector("input[name='user']").value;
                 const id_field = document.getElementById("fieldManager").value;
@@ -330,6 +357,46 @@
                         }
                     }
                 });
+            }
+            function storeCompany() {
+                const company_title = document.getElementById("InputTitle").value;
+                const company_inn = document.getElementById("InputInn").value;
+                const company_description = document.getElementById("InputInfoDescription").value;
+                const company_manager = document.getElementById("InputGeneralManager").value;
+                const company_address = document.getElementById("InputAddress").value;
+                const company_telephone = document.getElementById("InputTelephone").value;
+                $.ajax({
+                    url: "/api/company",
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        title: company_title,
+                        inn: company_inn,
+                        info_description: company_description,
+                        general_manager: company_manager,
+                        address: company_address,
+                        telephone: company_telephone
+                    },
+                    success(data) {
+                        $('.card-orientation').append(`
+                            <div class="col-md-3 col-md-offset-1 card card-company">
+                    <a class="company-info" href="/company/${data.company.id }">
+                        <div class="justify-content-between">
+                            <h5 class="mb2">${data.company.title }</h5>
+                        </div>
+                        <p class="description-company-card-text mb-1">${data.company.info_description}</p>
+                    </a>
+                </div>
+                        `)
+                    },
+                    error(err) {
+                        const data = err.responseJSON;
+                        for (let key in err.responseJSON.errors) {
+                            let error_text = err.responseJSON.errors[key][0];
+                            $(`#${key}-error`).removeClass('d-none').text(error_text);
+                        }
+                    }
+                })
             }
         </script>
     </body>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\CompanyController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\Api\CommentsController;
 use Illuminate\Http\Request;
@@ -23,8 +24,15 @@ Route::get('/company/{id}', [PagesController::class, "companyPage"]);
 * Добавление нового комментария
 * URI: {host}/api/comments
 */
-Route::get('/comment/{id}', [CommentsController::class, "viewComments"]);
+Route::get('/comment/{id}', [CommentsController::class, "viewCommentsTitle"])->name('commentsTitle');
+Route::get('/comment/{id}', [CommentsController::class, "viewCommentsInn"])->name('commentsInn');
+Route::get('/comment/{id}', [CommentsController::class, "viewCommentsDescription"])->name('commentsDescription');
+Route::get('/comment/{id}', [CommentsController::class, "viewCommentsManager"])->name('commentsManager');
+Route::get('/comment/{id}', [CommentsController::class, "viewCommentsAddress"])->name('commentsAddress');
+Route::get('/comment/{id}', [CommentsController::class, "viewCommentsTelephone"])->name('commentsTelephone');
+
 Route::post('/comment', [CommentsController::class, "storeComment"]);
+Route::post('/company', [CompanyController::class, "storeCompany"]);
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

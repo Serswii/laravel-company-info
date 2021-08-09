@@ -29,10 +29,10 @@
                     </div>
                 @endauth
                 @guest
-                    <div class="sm:flex sm:items-center sm:ml-6">
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Войти</a>
+                    <div class="flex align-items-center justify-content-between" style="width: 135px">
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700">Войти</a>
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Регистрация</a>
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700">Регистрация</a>
                         @endif
                     </div>
                 @endguest

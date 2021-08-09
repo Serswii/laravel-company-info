@@ -5,7 +5,7 @@
         <div class="row">
             <span class="success" style="color: green; margin-top: 10px; margin-bottom: 10px"></span>
             @guest
-                <span class="alert alert-info info-{{ $fields[0] }}">Только авторизованный пользователь может оставить комментарий</span>
+                <span class="alert alert-info info-{{ $fields[0] }}">Только авторизованный пользователь может смотреть и оставлять комментарии</span>
             @endguest
             <div class="comments alert alert-success d-none"></div>
             <div class="company-comment-form mb-4">
@@ -52,7 +52,7 @@
                 <div class="comments_inn"></div>
             </div>
             <div class="company-comment-form mb-4">
-                <div class="flex align-items-center">
+                <div class="mobile-company">
                 <p class="description-company-width">{{ $company->info_description }}</p>
                 <div class="comments-create flex ml-3"><img id="buttonhidden-3" class="disclosure" src="{{asset('images/disclosure.png')}}" alt=""><p>Комментарии @auth{{ $count_id3 }}@endauth</p></div>
                 </div>
@@ -73,7 +73,7 @@
                 <div class="comments_description"></div>
             </div>
             <div class="company-comment-form mb-4">
-                <div class="flex align-items-center">
+                <div class="mobile-company">
                     <p>{{ $company->general_manager }}</p>
                    <div class="comments-create flex ml-3"><img id="buttonhidden-4" class="disclosure" src="{{asset('images/disclosure.png')}}" alt=""><p>Комментарии @auth{{ $count_id4 }}@endauth</p></div>
                 </div>
@@ -94,7 +94,7 @@
                 <div class="comments_manager"></div>
             </div>
             <div class="company-comment-form mb-4">
-                <div class="flex align-items-center">
+                <div class="mobile-company">
                 <p>{{ $company->address }}</p>
                 <div class="comments-create flex ml-3"><img id="buttonhidden-5" class="disclosure" src="{{asset('images/disclosure.png')}}" alt=""><p>Комментарии @auth{{ $count_id5 }}@endauth</p></div>
                 </div>

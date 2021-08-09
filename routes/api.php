@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\Api\CommentsController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\Api\CommentsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +23,7 @@ Route::get('/company/{id}', [PagesController::class, "companyPage"]);
 * Добавление нового комментария
 * URI: {host}/api/comments
 */
-
+Route::get('/comment/{id}', [CommentsController::class, "viewComments"]);
 Route::post('/comment', [CommentsController::class, "storeComment"]);
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

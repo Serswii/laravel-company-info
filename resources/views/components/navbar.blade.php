@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row header">
             <div class="flex justify-content-between align-items-center">
-                <a class="navbar-brand" href="{{ route('index') }}">CompanyInfo</a>
+                    <a class="flex align-items-center navbar-brand" href="{{ route('index') }}">CompanyInfo <img class="ml-2" src="{{ asset('images/company-logo.svg') }}" style="width: 28px" alt="company-logo"></a>
                 @auth
                     <div class="sm:flex sm:items-center sm:ml-6">
                         <div class="relative" x-data="{ open: false }" @click.away="open = false" @close.stop="open = false">

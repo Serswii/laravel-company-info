@@ -12,5 +12,7 @@ class Comment extends Model
         'user',
         'comment',
         'id_field',
+        'id_company',
+        'created_at'
     ];
 }

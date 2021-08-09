@@ -52,6 +52,8 @@ textarea {
 .disclosure {
     width: 25px;
     height: 25px;
+    margin-right: 10px;
+    cursor: pointer;
 }
 .btn-enabled-company {
     width: 200px;
@@ -135,9 +137,13 @@ textarea {
         width: 80% !important;
     }
 }
+.description-company-width {
+    width: 85%;
+}
 p, a {
     color: #000000;
     text-decoration: none !important;
+    margin: 0 !important;
 }
 .navbar-brand, .navbar-brand:hover {
     color: #494949;
@@ -146,8 +152,8 @@ body {
     background-color: #f4f4f4 !important;
     height: 100%;
     width: 100%;
-    /*background-image: url("/img/max-delsid-8I6OcgjAOGg-unsplash.jpg");*/
-    /*background-position: center;*/
-    /*background-repeat: no-repeat;*/
+    /*background-color: floralwhite !important;*/
+    /*background-image: url("/images/bgc.png");*/
+    /*background-repeat: repeat;*/
     /*background-size: cover;*/
 }

@@ -118,6 +118,7 @@ textarea {
 }
 .media-list {
     display: flex;
+    margin-top: 20px;
 }
 .media {
     display: flex;

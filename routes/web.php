@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PagesController::class, "viewCompany"])->name('index');
 //Route::post('/company', [CompanyController::class, "store"])->name('store');
 Route::get('/company/{id}', [PagesController::class, 'companyPage'])->name('companyInfo');
+
+Route::get('/comment', [PagesController::class, "viewComments"]);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

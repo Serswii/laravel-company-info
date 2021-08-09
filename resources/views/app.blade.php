@@ -67,35 +67,8 @@
                 });
             });
 
-            $.ajax({
-                url: "/api/comment/{{ $company->id }}",
-                type: "GET",
-                dataType: "json",
-                success(data) {
-                    for (let index in data) {
-                        $('.comments_manager').append(`
-                            <ul class="media-list">
-                        <li class="media">
-                        <div class="media-left">
-                        <a href="#">
-                        <img class="media-object img-rounded" src="{{asset('/images/default-photo.png')}}" alt="default-img">
-                        </a>
-                        </div>
-                        <div class="media-body">
-                        <div class="media-heading">
-                        <div class="author">${data[index].user}</div>
-                        <div class="metadata">
-                        <span class="date">16 ноября 2015, 13:43</span>
-                        </div>
-                        </div>
-                        <div class="media-text text-justify">${data[index].comment}</div>
-                        `)
-                    }
-                }
-            })
-
             function storeCommentsManager() {
-                const user = document.querySelector("input[name='user']").value;
+                const id_user = document.querySelector("input[name='id_user']").value;
                 const id_field = document.getElementById("fieldManager").value;
                 const comment = document.getElementById("InputCommentManager").value;
                 const id_company = document.querySelector("input[name='id_company']").value;
@@ -104,7 +77,7 @@
                     method: "POST",
                     dataType: "json",
                     data: {
-                        user: user,
+                        id_user: id_user,
                         comment: comment,
                         id_field: id_field,
                         id_company: id_company
@@ -121,12 +94,15 @@
                         </div>
                         <div class="media-body">
                         <div class="media-heading">
-                        <div class="author">${data.comment.user}</div>
+                        <div class="author">@auth{{  Auth::user()->name }} @endauth</div>
                         <div class="metadata">
                         <span class="date">16 ноября 2015, 13:43</span>
                         </div>
                         </div>
                         <div class="media-text text-justify">${data.comment.comment}</div>
+                        </div>
+                        </li>
+                        </ul>
                         `);
                         $(`.comments`).removeClass('d-none').text("Комментарий был успешно добавлен")
                         },
@@ -140,7 +116,7 @@
                 });
             }
             function storeCommentsTitle() {
-                const user = document.querySelector("input[name='user']").value;
+                const id_user = document.querySelector("input[name='id_user']").value;
                 const id_field = document.getElementById("fieldTitle").value;
                 const comment = document.getElementById("InputCommentTitle").value;
                 const id_company = document.querySelector("input[name='id_company']").value;
@@ -149,7 +125,7 @@
                     method: "POST",
                     dataType: "json",
                     data: {
-                        user: user,
+                        id_user: id_user,
                         comment: comment,
                         id_field: id_field,
                         id_company: id_company
@@ -166,12 +142,15 @@
                         </div>
                         <div class="media-body">
                         <div class="media-heading">
-                        <div class="author">${data.comment.user}</div>
+                        <div class="author">@auth{{  Auth::user()->name }} @endauth</div>
                         <div class="metadata">
                         <span class="date">16 ноября 2015, 13:43</span>
                         </div>
                         </div>
                         <div class="media-text text-justify">${data.comment.comment}</div>
+                        </div>
+                        </li>
+                        </ul>
                         `);
                         $(`.comments`).removeClass('d-none').text("Комментарий был успешно добавлен")
                     },
@@ -185,7 +164,7 @@
                 });
             }
             function storeDescription() {
-                const user = document.querySelector("input[name='user']").value;
+                const id_user = document.querySelector("input[name='id_user']").value;
                 const id_field = document.getElementById("fieldDescription").value;
                 const comment = document.getElementById("InputCommentDescription").value;
                 const id_company = document.querySelector("input[name='id_company']").value;
@@ -194,7 +173,7 @@
                     method: "POST",
                     dataType: "json",
                     data: {
-                        user: user,
+                        id_user: id_user,
                         comment: comment,
                         id_field: id_field,
                         id_company: id_company
@@ -211,12 +190,15 @@
                         </div>
                         <div class="media-body">
                         <div class="media-heading">
-                        <div class="author">${data.comment.user}</div>
+                        <div class="author">@auth{{  Auth::user()->name }} @endauth</div>
                         <div class="metadata">
                         <span class="date">16 ноября 2015, 13:43</span>
                         </div>
                         </div>
                         <div class="media-text text-justify">${data.comment.comment}</div>
+                        </div>
+                        </li>
+                        </ul>
                         `);
                         $(`.comments`).removeClass('d-none').text("Комментарий был успешно добавлен")
                     },
@@ -230,7 +212,7 @@
                 });
             }
             function storeCommentsInn() {
-                const user = document.querySelector("input[name='user']").value;
+                const id_user = document.querySelector("input[name='id_user']").value;
                 const id_field = document.getElementById("fieldInn").value;
                 const comment = document.getElementById("InputCommentInn").value;
                 const id_company = document.querySelector("input[name='id_company']").value;
@@ -239,7 +221,7 @@
                     method: "POST",
                     dataType: "json",
                     data: {
-                        user: user,
+                        id_user: id_user,
                         comment: comment,
                         id_field: id_field,
                         id_company: id_company
@@ -256,12 +238,15 @@
                         </div>
                         <div class="media-body">
                         <div class="media-heading">
-                        <div class="author">${data.comment.user}</div>
+                        <div class="author">@auth{{  Auth::user()->name }} @endauth</div>
                         <div class="metadata">
                         <span class="date">16 ноября 2015, 13:43</span>
                         </div>
                         </div>
                         <div class="media-text text-justify">${data.comment.comment}</div>
+                        </div>
+                        </li>
+                        </ul>
                         `);
                         $(`.comments`).removeClass('d-none').text("Комментарий был успешно добавлен")
                     },
@@ -275,7 +260,7 @@
                 });
             }
             function storeCommentsAddress() {
-                const user = document.querySelector("input[name='user']").value;
+                const id_user = document.querySelector("input[name='id_user']").value;
                 const id_field = document.getElementById("fieldAddress").value;
                 const comment = document.getElementById("InputCommentAddress").value;
                 const id_company = document.querySelector("input[name='id_company']").value;
@@ -284,7 +269,7 @@
                     method: "POST",
                     dataType: "json",
                     data: {
-                        user: user,
+                        id_user: id_user,
                         comment: comment,
                         id_field: id_field,
                         id_company: id_company
@@ -301,12 +286,15 @@
                         </div>
                         <div class="media-body">
                         <div class="media-heading">
-                        <div class="author">${data.comment.user}</div>
+                        <div class="author">@auth{{  Auth::user()->name }} @endauth</div>
                         <div class="metadata">
                         <span class="date">16 ноября 2015, 13:43</span>
                         </div>
                         </div>
                         <div class="media-text text-justify">${data.comment.comment}</div>
+                        </div>
+                        </li>
+                        </ul>
                         `);
                         $(`.comments`).removeClass('d-none').text("Комментарий был успешно добавлен")
                     },
@@ -320,7 +308,7 @@
                 });
             }
             function storeCommentsTelephone() {
-                const user = document.querySelector("input[name='user']").value;
+                const id_user = document.querySelector("input[name='id_user']").value;
                 const id_field = document.getElementById("fieldTelephone").value;
                 const comment = document.getElementById("InputCommentTelephone").value;
                 const id_company = document.querySelector("input[name='id_company']").value;
@@ -329,7 +317,7 @@
                     method: "POST",
                     dataType: "json",
                     data: {
-                        user: user,
+                        id_user: id_user,
                         comment: comment,
                         id_field: id_field,
                         id_company: id_company
@@ -346,12 +334,15 @@
                         </div>
                         <div class="media-body">
                         <div class="media-heading">
-                        <div class="author">${data.comment.user}</div>
+                        <div class="author">@auth{{  Auth::user()->name }} @endauth</div>
                         <div class="metadata">
                         <span class="date">16 ноября 2015, 13:43</span>
                         </div>
                         </div>
                         <div class="media-text text-justify">${data.comment.comment}</div>
+                        </div>
+                        </li>
+                        </ul>
                         `);
                         $(`.comments`).removeClass('d-none').text("Комментарий был успешно добавлен")
                     },

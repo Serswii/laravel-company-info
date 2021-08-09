@@ -16,7 +16,7 @@
                 @auth
                 <form class="form-company comment-title" action="">
                     @csrf
-                    <input type="hidden" name="user" value="{{ Auth::user()->name }}">
+                    <input type="hidden" name="id_user" value="{{ Auth::id() }}">
                     <input type="hidden" name="id_company" value="{{ $company->id }}">
                     <input type="hidden" id="fieldTitle" name="commentField" value="{{ $fields[0] }}" >
                     <div class="mb-3">
@@ -27,9 +27,32 @@
 
                     <button type="button" class="btn btn-primary" name="saveComment" onclick="storeCommentsTitle()">Сохранить</button>
                 </form>
+
+                    <div class="comments_title">
+                        @foreach($comments as $comment)
+                    @if($comment->id_field == $fields[0])
+                    <ul class="media-list">
+                        <li class="media">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img class="media-object img-rounded" src="{{asset('/images/default-photo.png')}}" alt="default-img">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <div class="media-heading">
+                                    <div class="author">{{ Auth::user()->name }}</div>
+                                    <div class="metadata">
+                                        <span class="date">16 ноября 2015, 13:43</span>
+                                    </div>
+                                </div>
+                                <div class="media-text text-justify">{{ $comment->comment }}</div>
+                            </div>
+                        </li>
+                    </ul>
+                    @endif
+                        @endforeach
+                </div>
                 @endauth
-                <div class="comments_title"></div>
-            </div>
             <div class="company-comment-form mb-4">
                 <div class="flex align-items-center">
                 <p>{{ $company->inn }}</p>
@@ -38,7 +61,7 @@
                 @auth
                 <form class="form-company comment-inn" action="">
                     @csrf
-                    <input type="hidden" name="user" value="{{ Auth::user()->name }}">
+                    <input type="hidden" name="id_user" value="{{ Auth::id() }}">
                     <input type="hidden" name="id_company" value="{{ $company->id }}">
                     <input type="hidden" id="fieldInn" name="commentField" value="{{ $fields[1] }}" >
                     <div class="mb-3">
@@ -48,8 +71,32 @@
                     </div>
                     <button type="button" class="btn btn-primary" name="saveCommentInn" onclick="storeCommentsInn()">Сохранить</button>
                 </form>
+
+                    <div class="comments_inn">
+                        @foreach($comments as $comment)
+                    @if($comment->id_field == $fields[1])
+                            <ul class="media-list">
+                                <li class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                            <img class="media-object img-rounded" src="{{asset('/images/default-photo.png')}}" alt="default-img">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="media-heading">
+                                            <div class="author">{{ Auth::user()->name }}</div>
+                                            <div class="metadata">
+                                                <span class="date">16 ноября 2015, 13:43</span>
+                                            </div>
+                                        </div>
+                                        <div class="media-text text-justify">{{ $comment->comment }}</div>
+                                    </div>
+                                </li>
+                            </ul>
+                    @endif
+                        @endforeach
+                        </div>
                 @endauth
-                <div class="comments_inn"></div>
             </div>
             <div class="company-comment-form mb-4">
                 <div class="mobile-company">
@@ -59,7 +106,7 @@
                 @auth
                 <form class="form-company comment-description" action="">
                     @csrf
-                    <input type="hidden" name="user" value="{{ Auth::user()->name }}">
+                    <input type="hidden" name="id_user" value="{{ Auth::id() }}">
                     <input type="hidden" name="id_company" value="{{ $company->id }}">
                     <input type="hidden" id="fieldDescription" name="commentField" value="{{ $fields[2] }}" >
                     <div class="mb-3">
@@ -69,8 +116,33 @@
                     </div>
                     <button type="button" class="btn btn-primary" name="saveCommentDescription" onclick="storeCommentsDescription()">Сохранить</button>
                 </form>
+
+
+                    <div class="comments_description">
+                        @foreach($comments as $comment)
+                    @if($comment->id_field == $fields[2])
+                            <ul class="media-list">
+                                <li class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                            <img class="media-object img-rounded" src="{{asset('/images/default-photo.png')}}" alt="default-img">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="media-heading">
+                                            <div class="author">{{ Auth::user()->name }}</div>
+                                            <div class="metadata">
+                                                <span class="date">16 ноября 2015, 13:43</span>
+                                            </div>
+                                        </div>
+                                        <div class="media-text text-justify">{{ $comment->comment }}</div>
+                                    </div>
+                                </li>
+                            </ul>
+                    @endif
+                        @endforeach
+                    </div>
                 @endauth
-                <div class="comments_description"></div>
             </div>
             <div class="company-comment-form mb-4">
                 <div class="mobile-company">
@@ -80,7 +152,7 @@
                 @auth
                 <form class="form-company comment-manager mb-4" action="">
                     @csrf
-                    <input type="hidden" name="user" value="{{ Auth::user()->name }}">
+                    <input type="hidden" name="id_user" value="{{ Auth::id() }}">
                     <input type="hidden" name="id_company" value="{{ $company->id }}">
                     <input type="hidden" id="fieldManager" name="commentField" value="{{ $fields[3] }}" >
                     <div class="mb-3">
@@ -90,8 +162,33 @@
                     </div>
                     <button type="button" class="btn btn-primary" name="saveCommentManager" onclick="storeCommentsManager()">Сохранить</button>
                 </form>
+
+
+                    <div class="comments_manager">
+                        @foreach($comments as $comment)
+                        @if($comment->id_field == $fields[3])
+                            <ul class="media-list">
+                                <li class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                            <img class="media-object img-rounded" src="{{asset('/images/default-photo.png')}}" alt="default-img">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="media-heading">
+                                            <div class="author">{{ Auth::user()->name }}</div>
+                                            <div class="metadata">
+                                                <span class="date">16 ноября 2015, 13:43</span>
+                                            </div>
+                                        </div>
+                                        <div class="media-text text-justify">{{ $comment->comment }}</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        @endif
+                            @endforeach
+                    </div>
                 @endauth
-                <div class="comments_manager"></div>
             </div>
             <div class="company-comment-form mb-4">
                 <div class="mobile-company">
@@ -101,7 +198,7 @@
                 @auth
                 <form class="form-company comment-adress" action="">
                     @csrf
-                    <input type="hidden" name="user" value="{{ Auth::user()->name }}">
+                    <input type="hidden" name="id_user" value="{{ Auth::id() }}">
                     <input type="hidden" name="id_company" value="{{ $company->id }}">
                     <input type="hidden" id="fieldAddress" name="commentField" value="{{ $fields[4] }}" >
                     <div class="mb-3">
@@ -111,8 +208,32 @@
                     </div>
                     <button type="button" class="btn btn-primary" onclick="storeCommentsAddress()" name="saveCommentAddress">Сохранить</button>
                 </form>
+
+                    <div class="comments_address">
+                        @foreach($comments as $comment)
+                        @if($comment->id_field == $fields[4])
+                            <ul class="media-list">
+                                <li class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                            <img class="media-object img-rounded" src="{{asset('/images/default-photo.png')}}" alt="default-img">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="media-heading">
+                                            <div class="author">{{ Auth::user()->name }}</div>
+                                            <div class="metadata">
+                                                <span class="date">16 ноября 2015, 13:43</span>
+                                            </div>
+                                        </div>
+                                        <div class="media-text text-justify">{{ $comment->comment }}</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        @endif
+                            @endforeach
+                    </div>
                 @endauth
-                <div class="comments_address"></div>
             </div>
             <div class="company-comment-form mb-4">
                 <div class="flex align-items-center">
@@ -122,7 +243,7 @@
                 @auth
                 <form id="comment-form" class="form-company comment-telephone" action="">
                     @csrf
-                    <input type="hidden" name="user" value="{{ Auth::user()->name }}">
+                    <input type="hidden" name="id_user" value="{{ Auth::id() }}">
                     <input type="hidden" name="id_company" value="{{ $company->id }}">
                     <input type="hidden" id="fieldTelephone" name="commentField" value="{{ $fields[5] }}" >
                     <div class="mb-3">
@@ -132,11 +253,36 @@
                     </div>
                     <button type="button" class="btn btn-primary" name="saveCommentTelephone" onclick="storeCommentsTelephone()">Сохранить</button>
                 </form>
+
+                    <div class="comments_telephone">
+                        @foreach($comments as $comment)
+                        @if($comment->id_field == $fields[5])
+                            <ul class="media-list">
+                                <li class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                            <img class="media-object img-rounded" src="{{asset('/images/default-photo.png')}}" alt="default-img">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="media-heading">
+                                            <div class="author">{{ Auth::user()->name }}</div>
+                                            <div class="metadata">
+                                                <span class="date">16 ноября 2015, 13:43</span>
+                                            </div>
+                                        </div>
+                                        <div class="media-text text-justify">{{ $comment->comment }}</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        @endif
+                        @endforeach
+                    </div>
                 @endauth
-                <div class="comments_telephone"></div>
             </div>
 
         </div>
+    </div>
     </div>
 
 @endsection
